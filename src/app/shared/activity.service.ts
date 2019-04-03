@@ -16,7 +16,6 @@ export class ActivityService {
   constructor(private http:HttpClient) { }
 
   postActivity(formData:Activity){
-    console.log("jestem2");
     return this.http.post(this.rootURL,formData);
   }
 
@@ -25,7 +24,6 @@ export class ActivityService {
   }
 
   putActivity(formData:Activity){
-    console.log("jestem2");
     return this.http.put(this.rootURL,formData);
   }
 

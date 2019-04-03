@@ -1,4 +1,9 @@
 <table class="table table-hover">
+  <tr>
+    <th>Symbol</th>
+    <th>Name</th>
+    <th></th>
+  </tr>
   <tr *ngFor="let act of service.list">
     <td (click)="populateForm(act)">[{{act.symbol}}]</td>
     <td (click)="populateForm(act)">{{act.name}}</td>
