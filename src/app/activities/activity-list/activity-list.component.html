@@ -5,8 +5,8 @@
     <th></th>
   </tr>
   <tr *ngFor="let act of service.list">
-    <td (click)="populateForm(act)">[{{act.symbol}}]</td>
-    <td (click)="populateForm(act)">{{act.name}}</td>
-    <td><button (click) = "onDelete(act.id)" class="btn btn-sm btn-outline-danger">X</button></td>
+    <td>[{{act.symbol}}]</td>
+    <td>{{act.name}}</td>
+    <td> <button (click) = "populateForm(act)" class = "btn btn-sm btn-outline-info"><i class="far fa-edit"></i></button>&nbsp;<button (click) = "onDelete(act.id)" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button></td>
   </tr>
 </table>

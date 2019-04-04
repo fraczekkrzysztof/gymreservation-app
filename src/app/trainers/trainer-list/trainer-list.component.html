@@ -7,6 +7,6 @@
     <tr *ngFor="let tr of service.list">
       <td>{{tr.symbol}}</td>
       <td>{{tr.name}}</td>
-      <td><button (click) = "onDelete(tr.id)" class="btn btn-sm btn-outline-danger">X</button></td>
+      <td> <button (click) = "PopulateTrainer(tr)" class = "btn btn-sm btn-outline-info"><i class="far fa-edit"></i></button>&nbsp;<button (click) = "onDelete(tr.id)" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button></td>
     </tr>
   </table>

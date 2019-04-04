@@ -16,6 +16,11 @@ import { TrainerComponent } from './trainers/trainer/trainer.component';
 import { TrainerListComponent } from './trainers/trainer-list/trainer-list.component';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { TrainerService } from './shared/trainer.service';
+import { LessonsComponent } from './lessons/lessons.component';
+import { LessonListComponent } from './lessons/lesson-list/lesson-list.component';
+import { LessonService } from './shared/lesson.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     TrainerComponent,
     TrainerListComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    LessonsComponent,
+    LessonListComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [ActivityService],
+  providers: [ActivityService, TrainerService, LessonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

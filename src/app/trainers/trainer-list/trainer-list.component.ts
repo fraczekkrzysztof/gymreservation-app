@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainerService } from 'src/app/shared/trainer.service';
 import { ToastrService } from 'ngx-toastr';
+import { Trainer } from 'src/app/shared/trainer.model';
 
 @Component({
   selector: 'app-trainer-list',
@@ -20,6 +21,9 @@ export class TrainerListComponent implements OnInit {
       this.service.refreshList();
       this.toastr.warning('Delete successfuly','Trainer Register');
     })
+  }
+  PopulateTrainer(tr:Trainer){
+    this.service.formData = Object.assign({},tr);
   }
 
 }
