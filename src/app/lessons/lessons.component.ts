@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowingService } from '../shared/showing.service';
 
 @Component({
   selector: 'app-lessons',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LessonsComponent implements OnInit {
 
-  constructor() { }
+ 
+  constructor(private showing:ShowingService) { }
 
   ngOnInit() {
+    this.showing.addShow('lesson-list',true);
+    this.showing.addShow('lesson',false);
+  }
+
+  getShow(what:string){
+    return this.showing.getShow(what);
+  }
+
+  addNewLesson(){
+    this.showing.addShow('lesson-list',false);
+    this.showing.addShow('lesson',true);
+  }
+  addSucces(succes:boolean){
+    console.log("emmit2");
+    this.showing.addShow('lesson-list',true);
+    this.showing.addShow('lesson',false);
   }
 
 }

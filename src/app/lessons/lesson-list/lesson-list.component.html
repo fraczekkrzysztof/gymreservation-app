@@ -1,10 +1,20 @@
-<table class="table table-hover">
-  <tr *ngFor="let les of service.list">
-    <td>{{les.name}}</td>
-    <td>{{les.date}}</td>
-    <td>{{les.trainer.name}}</td>
-    <td>{{les.activity.name}}</td>
-    <td>{{les.max}}</td>
-    <td>{{les.available}}</td>
-  </tr>
-</table>
+<div class="container">
+  <table class="table table-hover table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Trainer</th>
+      <th>Activity</th>
+      <th>Max</th>
+      <th>Available</th>
+    </tr>
+    <tr *ngFor="let les of lessonService.list">
+      <td>{{les.name}}</td>
+      <td>{{les.date}}</td>
+      <td>{{les.trainer.name}}</td>
+      <td>{{les.activity.name}}</td>
+      <td>{{les.max}}</td>
+      <td>{{les.available}}</td>
+    </tr>
+  </table>
+</div>

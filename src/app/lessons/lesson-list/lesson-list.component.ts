@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonService } from 'src/app/shared/lesson.service';
 import { ToastrService } from 'ngx-toastr';
+import { TrainerService } from 'src/app/shared/trainer.service';
+import { ActivityService } from 'src/app/shared/activity.service';
 
 @Component({
   selector: 'app-lesson-list',
@@ -9,10 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LessonListComponent implements OnInit {
 
-  constructor(private service:LessonService, private toastr:ToastrService) { }
+  constructor(private lessonService:LessonService, 
+              private TrainerService:TrainerService,
+              private ActivityService:ActivityService,
+              private toastr:ToastrService) { }
 
   ngOnInit() {
-    this.service.refreshList();
+    this.lessonService.refreshList();
   }
 
 }

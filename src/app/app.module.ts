@@ -20,6 +20,8 @@ import { TrainerService } from './shared/trainer.service';
 import { LessonsComponent } from './lessons/lessons.component';
 import { LessonListComponent } from './lessons/lesson-list/lesson-list.component';
 import { LessonService } from './shared/lesson.service';
+import { LessonComponent } from './lessons/lesson/lesson.component';
+import { ShowingService } from './shared/showing.service';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { LessonService } from './shared/lesson.service';
     HomeComponent,
     NavigationComponent,
     LessonsComponent,
-    LessonListComponent
+    LessonListComponent,
+    LessonComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { LessonService } from './shared/lesson.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [ActivityService, TrainerService, LessonService],
+  providers: [ActivityService, TrainerService, LessonService, ShowingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

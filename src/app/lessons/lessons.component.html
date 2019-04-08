@@ -1,1 +1,12 @@
-<app-lesson-list></app-lesson-list>
+<div class="container">
+    <div class="container" style="padding-top:20px;">
+        <button (click)="addNewLesson()" class="btn btn-sm btn-info">Add new</button>
+    </div>
+    <div *ngIf="getShow('lesson-list')" class="container" style="padding-top:10px;">
+        <app-lesson-list></app-lesson-list>
+    </div>
+    <div *ngIf="getShow('lesson')" class="container">
+        <app-lesson (addSucces)="addSucces($event)"></app-lesson>
+    </div>
+</div>
+
