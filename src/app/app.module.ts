@@ -22,6 +22,8 @@ import { LessonListComponent } from './lessons/lesson-list/lesson-list.component
 import { LessonService } from './shared/lesson.service';
 import { LessonComponent } from './lessons/lesson/lesson.component';
 import { ShowingService } from './shared/showing.service';
+import { BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { ShowingService } from './shared/showing.service';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    NgbModule
   ],
   providers: [ActivityService, TrainerService, LessonService, ShowingService],
   bootstrap: [AppComponent]

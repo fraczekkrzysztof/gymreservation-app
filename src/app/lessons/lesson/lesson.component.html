@@ -1,4 +1,73 @@
-<div class="container">
-  <button (click)="onSubmit()">Submit</button>
+<div class="container" style="width:80%;">
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="lessonService.formData.id" />
+    <div class="form-group row">
+      <label class="col-md-1 col-form-label">Name</label>
+      <div class="col-md-8">
+        <input name="name" #name="ngModel" [(ngModel)]="lessonService.formData.name" class="form-control" required />
+      </div>
+      <div class="col-md-3">
+        <div class="validation-error" *ngIf="name.invalid && name.touched">This field is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-1 col-form-label">
+        Date
+      </label>
+      <div class="col-md-8 input-group">
+        <input class="form-control" type="text" bsDatepicker name="date" #date="ngModel"
+          [(ngModel)]="lessonService.formData.date"
+          [bsConfig]="{dateInputFormat: 'DD.MM.YYYY HH:mm',containerClass:'theme-blue'}" required />
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-plus"></i></span>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="validation-error" *ngIf="date.invalid && date.touched">This field is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-1 col-form-label">Trainer</label>
+      <div class="col-md-8 input-group">
+        <select name="trainer" #trainer="ngModel" [(ngModel)]="lessonService.formData.trainer" class="form-control"
+          required>
+          <option *ngFor="let tr of trainerService.list" value="{{tr.id}}">
+            {{tr.symbol}} - {{tr.name}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <div class="validation-error" *ngIf="trainer.invalid && trainer.touched">This field is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-1 col-form-label">Activity</label>
+      <div class="col-md-8 input-group">
+        <select name="activity" #activity="ngModel" [(ngModel)]="lessonService.formData.activity" class="form-control"
+          required>
+          <option *ngFor="let act of activityService.list" value="{{act.id}}">
+            {{act.symbol}} - {{act.name}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <div class="validation-error" *ngIf="activity.invalid && activity.touched">This field is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-1 col-form-label">Max</label>
+      <div class="col-md-8 input-group">
+          <input name="max" #max="ngModel" [(ngModel)]="lessonService.formData.max" class="form-control" required />
+      </div>
+      <div class="col-md-3">
+          <div class="validation-error" *ngIf="max.invalid && max.touched">This field is required
+          </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-ls" [disabled]="form.invalid">Submit</button>
+  </form>
 </div>
-

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowingService } from '../shared/showing.service';
+import { LessonService } from '../shared/lesson.service';
 
 @Component({
   selector: 'app-lessons',
@@ -15,7 +16,6 @@ export class LessonsComponent implements OnInit {
     this.showing.addShow('lesson-list',true);
     this.showing.addShow('lesson',false);
   }
-
   getShow(what:string){
     return this.showing.getShow(what);
   }

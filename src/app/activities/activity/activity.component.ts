@@ -14,7 +14,6 @@ export class ActivityComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
-    console.log("dfsdfsdf");
   }
 
   resetForm(form?: NgForm){

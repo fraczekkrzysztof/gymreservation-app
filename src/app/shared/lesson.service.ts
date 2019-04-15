@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Lesson } from './lesson.model';
 import { HttpClient } from '@angular/common/http';
+import { LessonDto } from './lesson-dto.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LessonService {
 
-  formData:Lesson;
+  formData:LessonDto;
   list:Lesson[];
   readonly rootURL = "http://localhost:8080/api/lesson";
   constructor(private http:HttpClient) {}
@@ -17,4 +18,9 @@ export class LessonService {
       res => {this.list = res as Lesson[]
     });
   }
+
+  postActivity(formData:LessonDto){
+    return this.http.post(this.rootURL,formData);
+  }
+
 }
