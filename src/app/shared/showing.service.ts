@@ -13,7 +13,7 @@ export class ShowingService {
    }
 
   addShow(what:string, show:boolean){
-    let lookFor =  this.showList.find(x=> x.what ==what);
+    let lookFor =  this.showList.find(x=> x.what == what);
     if (lookFor == null){
       this.showList.push({what:what,show:show});
     } else{

@@ -3,7 +3,7 @@
         <button (click)="addNewLesson()" class="btn btn-sm btn-info">Add new</button>
     </div>
     <div *ngIf="getShow('lesson-list')" class="container" style="padding-top:10px;">
-        <app-lesson-list></app-lesson-list>
+        <app-lesson-list (updating)="showFormForUpdate($event)"></app-lesson-list>
     </div>
     <div *ngIf="getShow('lesson')" class="container">
         <app-lesson (addSucces)="addSucces($event)"></app-lesson>
