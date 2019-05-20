@@ -24,6 +24,8 @@ import { LessonComponent } from './lessons/lesson/lesson.component';
 import { ShowingService } from './shared/showing.service';
 import { BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ReservationComponent } from './lessons/reservation/reservation.component';
+import { ReservationService } from './shared/reservation.service';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NavigationComponent,
     LessonsComponent,
     LessonListComponent,
-    LessonComponent
+    LessonComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BsDatepickerModule.forRoot(),
     NgbModule
   ],
-  providers: [ActivityService, TrainerService, LessonService, ShowingService],
+  providers: [ActivityService, TrainerService, LessonService, ShowingService, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,7 +17,7 @@ export class LessonComponent implements OnInit {
     private trainerService:TrainerService) { }
 
   ngOnInit() {
-    //this.resetForm();
+    this.resetForm();
     this.trainerService.refreshList();
     this.activityService.refreshList();
   }
@@ -37,12 +37,7 @@ export class LessonComponent implements OnInit {
     }
   }
   onSubmit(form:NgForm){
-    if(form.value.id == null){
-      this.insertRecord(form);
-    } else{
-      this.updateRecord(form);
-    }
-    
+    this.insertRecord(form);
     this.addSucces.emit(true);
   }
 
@@ -53,10 +48,5 @@ export class LessonComponent implements OnInit {
     })
   }
 
-  updateRecord(form:NgForm){
-    this.lessonService.putLesson(form.value).subscribe(res =>{
-      console.log("update succes");
-    })
-  }
 
 }

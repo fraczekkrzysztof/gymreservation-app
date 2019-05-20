@@ -1,12 +1,17 @@
 <div class="container">
-    <div class="container" style="padding-top:20px;">
-        <button (click)="addNewLesson()" class="btn btn-sm btn-info">Add new</button>
+  <div class="container" style="padding-top:20px;">
+    <button (click)="addNewLesson()" class="btn btn-sm btn-info">Add new</button>
+  </div>
+  <div *ngIf="getShow('lesson-list')" class="container" style="padding-top:20px;">
+    <div class="container" style="padding-top:10px;">
+      <button (click)="addNewLesson()" class="btn btn-sm btn-info">Add new</button>
     </div>
-    <div *ngIf="getShow('lesson-list')" class="container" style="padding-top:10px;">
-        <app-lesson-list (updating)="showFormForUpdate($event)"></app-lesson-list>
-    </div>
-    <div *ngIf="getShow('lesson')" class="container">
-        <app-lesson (addSucces)="addSucces($event)"></app-lesson>
-    </div>
+    <app-lesson-list></app-lesson-list>
+  </div>
+  <div *ngIf="getShow('lesson')" class="container">
+    <app-lesson (addSucces)="addSucces($event)"></app-lesson>
+  </div>
+  <div *ngIf="getShow('reservation')" class="container">
+    <app-reservation></app-reservation>
+  </div>
 </div>
-

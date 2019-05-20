@@ -23,9 +23,6 @@ export class LessonService {
     return this.http.post(this.rootURL,formData);
   }
 
-  putLesson(formData:LessonDto){
-    return this.http.put(this.rootURL,formData);
-  }
 
   deleteLesson(id:number){
     return this.http.delete(this.rootURL+"/"+id);
