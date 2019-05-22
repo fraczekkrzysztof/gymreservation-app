@@ -16,9 +16,9 @@ constructor(private showing:ShowingService, private lessonService:LessonService,
   private toastr:ToastrService) { }
 
 ngOnInit() {
-  this.showing.addShow('lesson-list',false);
+  this.showing.addShow('lesson-list',true);
   this.showing.addShow('lesson',false);
-  this.showing.addShow('reservation',true);
+  this.showing.addShow('reservation',false);
 }
 resetForm(form?: NgForm){
   if(form != null){
@@ -50,6 +50,12 @@ addSucces(succes:boolean){
   this.showing.addShow('lesson',false);
   this.showing.addShow('reservation',false);
   this.toastr.success('Inserted successfully','Lesson Register');
+}
+
+showReservation(details:object){
+  this.showing.addShow('lesson-list',false);
+  this.showing.addShow('lesson',false);
+  this.showing.addShow('reservation',true);
 }
 
 

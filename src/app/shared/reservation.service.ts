@@ -8,10 +8,17 @@ import { ReservationDto } from './reservation-dto.model';
 })
 export class ReservationService {
 
+  reservation:boolean;
+  lessonToReserve:number;
   formData:ReservationDto;
   list:Reservation[];
   readonly rootURL = "http://localhost:8080/api/reservation";
   constructor(private http:HttpClient) { }
+
+  setReservationParameter(isReservation:boolean,lessonToReserve:number){
+    this.reservation=isReservation;
+    this.lessonToReserve = lessonToReserve;
+  }
 
   refreshList(){
     return this.http.get(this.rootURL).toPromise().then(

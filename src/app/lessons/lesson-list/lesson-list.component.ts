@@ -5,6 +5,7 @@ import { TrainerService } from 'src/app/shared/trainer.service';
 import { ActivityService } from 'src/app/shared/activity.service';
 import { LessonDto } from 'src/app/shared/lesson-dto.model';
 import { Lesson } from 'src/app/shared/lesson.model';
+import { ReservationService } from 'src/app/shared/reservation.service';
 
 
 @Component({
@@ -15,10 +16,12 @@ import { Lesson } from 'src/app/shared/lesson.model';
 export class LessonListComponent implements OnInit {
 
   @Output() updating = new EventEmitter();
+  @Output() reservation = new EventEmitter();
 
   constructor(private lessonService:LessonService, 
-              private TrainerService:TrainerService,
-              private ActivityService:ActivityService,
+              private trainerService:TrainerService,
+              private activityService:ActivityService,
+              private reservationService:ReservationService,
               private toastr:ToastrService) { }
 
   ngOnInit() {
@@ -47,6 +50,10 @@ export class LessonListComponent implements OnInit {
       this.lessonService.refreshList();
       this.toastr.warning('Delete successfully','Lesson Register');
     })
+  }
+
+  onReservation(les:Lesson){
+    this.reservation.emit(true);
   }
 
 }

@@ -7,6 +7,7 @@
       <th>Activity</th>
       <th>Max</th>
       <th>Available</th>
+      <th></th>
     </tr>
     <tr *ngFor="let les of lessonService.list">
       <td>{{les.name}}</td>
@@ -16,7 +17,10 @@
       <td>{{les.max}}</td>
       <td>{{les.available}}</td>
       <td> <button (click)="onDelete(les.id)"
-          class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button></td>
+          class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+          &nbsp;
+          <button (click)="onReservation(les)"class="btn btn-sm btn-outline-info">Reserve</button>
+        </td>
     </tr>
   </table>
 </div>
