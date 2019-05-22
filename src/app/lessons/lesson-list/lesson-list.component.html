@@ -20,6 +20,7 @@
           class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button>
           &nbsp;
           <button [disabled]="les.available == 0" (click)="onReservation(les)" class="btn btn-sm btn-outline-info">Reserve</button>
+          &nbsp;
           <button [disabled]="les.available != 0" (click)="onWaiting(les)" class="btn btn-sm btn-outline-info">Waiting</button>
         </td>
     </tr>
