@@ -53,6 +53,12 @@ export class LessonListComponent implements OnInit {
   }
 
   onReservation(les:Lesson){
+    this.reservationService.setReservationParameter(true,les.id);
+    this.reservation.emit(true);
+  }
+
+  onWaiting(les:Lesson){
+    this.reservationService.setReservationParameter(false,les.id);
     this.reservation.emit(true);
   }
 

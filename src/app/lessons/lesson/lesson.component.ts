@@ -3,6 +3,7 @@ import { LessonService } from 'src/app/shared/lesson.service';
 import { NgForm } from '@angular/forms';
 import { ActivityService } from 'src/app/shared/activity.service';
 import { TrainerService } from 'src/app/shared/trainer.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-lesson',
@@ -14,7 +15,8 @@ export class LessonComponent implements OnInit {
   @Output() addSucces: EventEmitter<boolean> = new EventEmitter;
   constructor(private lessonService:LessonService, 
     private activityService:ActivityService, 
-    private trainerService:TrainerService) { }
+    private trainerService:TrainerService,
+    private toastr:ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -44,7 +46,7 @@ export class LessonComponent implements OnInit {
   insertRecord(form:NgForm){
     form.value.available = form.value.max;
     this.lessonService.postLesson(form.value).subscribe(res =>{
-      console.log("succes");
+    this.toastr.success('Inserted successfully','Lesson Register');
     })
   }
 

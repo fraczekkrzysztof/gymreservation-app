@@ -35,4 +35,8 @@ export class ReservationService {
   postReservation(formData:ReservationDto){
     return this.http.post(this.rootURL,formData);
   }
+
+  postWaitingReservation(formData:ReservationDto){
+    return this.http.post(this.rootURL + "/waiting",formData);
+  }
 }

@@ -9,6 +9,6 @@
     <app-lesson (addSucces)="addSucces($event)"></app-lesson>
   </div>
   <div *ngIf="getShow('reservation')" class="container">
-    <app-reservation></app-reservation>
+    <app-reservation (afterReservation)="hideReservation($event)"></app-reservation>
   </div>
 </div>

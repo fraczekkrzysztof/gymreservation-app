@@ -49,7 +49,6 @@ addSucces(succes:boolean){
   this.showing.addShow('lesson-list',true);
   this.showing.addShow('lesson',false);
   this.showing.addShow('reservation',false);
-  this.toastr.success('Inserted successfully','Lesson Register');
 }
 
 showReservation(details:object){
@@ -58,5 +57,10 @@ showReservation(details:object){
   this.showing.addShow('reservation',true);
 }
 
+hideReservation(flag:boolean){
+  this.showing.addShow('lesson-list',true);
+  this.showing.addShow('lesson',false);
+  this.showing.addShow('reservation',false);
+}
 
 }

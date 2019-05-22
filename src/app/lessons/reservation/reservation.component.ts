@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ReservationService } from 'src/app/shared/reservation.service';
+import { ToastrService } from 'ngx-toastr';
+import { LessonService } from 'src/app/shared/lesson.service';
+
 
 @Component({
   selector: 'app-reservation',
@@ -9,7 +12,12 @@ import { ReservationService } from 'src/app/shared/reservation.service';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor(private reservationService:ReservationService) { }
+  @Output() afterReservation:EventEmitter<boolean> = new EventEmitter;
+
+  constructor(private reservationService:ReservationService,
+              private lessonService:LessonService,
+              private toastr:ToastrService
+              ) { }
 
   ngOnInit() {
     this.resetForm();
@@ -31,13 +39,47 @@ export class ReservationComponent implements OnInit {
   };
 
   onSubmit(form:NgForm){
-    console.log("submit");
-    this.insertRecord(form);
+    if (this.reservationService.reservation){
+      this.insertRecord(form);
+    } else {
+      this.insertWaitingRecord(form);
+    }
+    
   }
 
   insertRecord(form:NgForm){
-    this.reservationService.postReservation(form.value).subscribe(res =>{
+    var toInsert = {
+      id : 0,
+      lesson : this.reservationService.lessonToReserve ,
+      name : form.value.name,
+      email : form.value.email,
+      confirmed : false,
+      waiting : 0,
+      time : ''
+    };
+    this.reservationService.postReservation(toInsert).subscribe(res =>{
       console.log("succes");
+      this.toastr.success('Reservation successfully','new Reservation');
+      this.lessonService.refreshList();
+      this.afterReservation.emit(true);
+    })
+  }
+
+  insertWaitingRecord(form:NgForm){
+    var toInsert = {
+      id : 0,
+      lesson : this.reservationService.lessonToReserve ,
+      name : form.value.name,
+      email : form.value.email,
+      confirmed : false,
+      waiting : 0,
+      time : ''
+    };
+    this.reservationService.postWaitingReservation(toInsert).subscribe(res =>{
+      console.log("succes");
+      this.toastr.success('Waiting successfully','new Waiting');
+      this.lessonService.refreshList();
+      this.afterReservation.emit(true);
     })
   }
 }
