@@ -22,9 +22,15 @@ export class ActivityListComponent implements OnInit {
   }
 
   onDelete(id:number){
-    this.service.deleteActivity(id).subscribe(res => {
-      this.service.refreshList();
-      this.toastr.warning('Delete successfully','Activity Register');
-    })
+    this.service.deleteActivity(id).subscribe(
+      (res ) =>{
+        console.log(res);
+          this.service.refreshList();
+          this.toastr.warning('Delete successfully','Activity Register');
+      },
+      error => {
+        this.toastr.error(error.error.message);
+      } 
+     )
   }
 }

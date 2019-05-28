@@ -20,7 +20,11 @@ export class TrainerListComponent implements OnInit {
     this.service.deleteTrainer(id).subscribe(res =>{
       this.service.refreshList();
       this.toastr.warning('Delete successfuly','Trainer Register');
-    })
+    },
+    error => {
+      this.toastr.error(error.error.message);
+      }
+    )
   }
   PopulateTrainer(tr:Trainer){
     this.service.formData = Object.assign({},tr);
