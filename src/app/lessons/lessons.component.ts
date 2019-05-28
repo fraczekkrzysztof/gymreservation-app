@@ -45,7 +45,6 @@ addNewLesson(){
   this.showing.addShow('reservation',false);
 }
 addSucces(succes:boolean){
-  this.lessonService.refreshList();
   this.showing.addShow('lesson-list',true);
   this.showing.addShow('lesson',false);
   this.showing.addShow('reservation',false);

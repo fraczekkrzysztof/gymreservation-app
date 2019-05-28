@@ -58,7 +58,6 @@ export class ReservationComponent implements OnInit {
       time : ''
     };
     this.reservationService.postReservation(toInsert).subscribe(res =>{
-      console.log("succes");
       this.toastr.success('Reservation successfully','new Reservation');
       this.lessonService.refreshList();
       this.afterReservation.emit(true);
@@ -76,7 +75,7 @@ export class ReservationComponent implements OnInit {
       time : ''
     };
     this.reservationService.postWaitingReservation(toInsert).subscribe(res =>{
-      console.log("succes");
+  
       this.toastr.success('Waiting successfully','new Waiting');
       this.lessonService.refreshList();
       this.afterReservation.emit(true);

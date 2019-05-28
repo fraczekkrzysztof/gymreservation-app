@@ -33,6 +33,7 @@
       <div class="col-md-8 input-group">
         <select name="trainer" #trainer="ngModel" [(ngModel)]="lessonService.formData.trainer" class="form-control"
           required>
+          <option disable hidden value = "null">-- Pick one --</option>
           <option *ngFor="let tr of trainerService.list" value="{{tr.id}}">
             {{tr.symbol}} - {{tr.name}}
           </option>
@@ -48,6 +49,7 @@
       <div class="col-md-8 input-group">
         <select name="activity" #activity="ngModel" [(ngModel)]="lessonService.formData.activity" class="form-control"
           required>
+          <option disable hidden value = "null">-- Pick one --</option>
           <option *ngFor="let act of activityService.list" value="{{act.id}}">
             {{act.symbol}} - {{act.name}}
           </option>

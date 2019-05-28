@@ -5,10 +5,10 @@
     </div>
     <app-lesson-list (reservation)="showReservation($event)"></app-lesson-list>
   </div>
-  <div *ngIf="getShow('lesson')" class="container">
+  <div *ngIf="getShow('lesson')" class="container" style="padding-top:20px;">
     <app-lesson (addSucces)="addSucces($event)"></app-lesson>
   </div>
-  <div *ngIf="getShow('reservation')" class="container">
+  <div *ngIf="getShow('reservation')" class="container" style="padding-top:20px;">
     <app-reservation (afterReservation)="hideReservation($event)"></app-reservation>
   </div>
 </div>

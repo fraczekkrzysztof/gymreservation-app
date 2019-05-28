@@ -46,7 +46,8 @@ export class LessonComponent implements OnInit {
   insertRecord(form:NgForm){
     form.value.available = form.value.max;
     this.lessonService.postLesson(form.value).subscribe(res =>{
-    this.toastr.success('Inserted successfully','Lesson Register');
+      this.lessonService.refreshList();
+      this.toastr.success('Inserted successfully','Lesson Register');
     })
   }
 
