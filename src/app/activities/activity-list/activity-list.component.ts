@@ -14,11 +14,11 @@ export class ActivityListComponent implements OnInit {
 
   ngOnInit() {
     this.service.refreshList();
+    this.service.selectedActivity = null;
   }
 
   populateForm(act:Activity){
     this.service.formData = Object.assign({},act);
-    
   }
 
   onDelete(id:number){
@@ -32,5 +32,18 @@ export class ActivityListComponent implements OnInit {
         this.toastr.error(error.error.message);
       } 
      )
+  }
+  onSelect(act:Activity){
+    console.log("Selected!");
+    this.service.selectedActivity = act;
+  }
+
+  isSelected(act:Activity){
+    if (act==this.service.selectedActivity){
+      return "selected";
+    } else{
+      return "";
+    }
+    
   }
 }

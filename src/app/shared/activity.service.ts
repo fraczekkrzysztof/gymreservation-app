@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ActivityService {
 
+  selectedActivity:Activity;
   formData: Activity;
   list: Activity[];
   readonly rootURL = "http://localhost:8080/api/activity";
