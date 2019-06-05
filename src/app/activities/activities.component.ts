@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivityService } from '../shared/activity.service';
 
 @Component({
   selector: 'app-activities',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ActivityService) { }
 
   ngOnInit() {
+    this.service.selectedActivityLessons = null;
   }
 
 }

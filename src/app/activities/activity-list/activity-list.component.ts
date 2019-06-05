@@ -36,6 +36,7 @@ export class ActivityListComponent implements OnInit {
   onSelect(act:Activity){
     console.log("Selected!");
     this.service.selectedActivity = act;
+    this.service.getSelectedActivityLessons(act.id);
   }
 
   isSelected(act:Activity){
